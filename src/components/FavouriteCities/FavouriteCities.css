@@ -1,0 +1,134 @@
+.favs__count {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-3);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+.favs__count--full {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.favs__empty {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+.favs__empty strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.favs__empty-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text-3);
+  border: 1px dashed var(--border-strong);
+}
+
+.favs__list {
+  display: grid;
+  gap: 4px;
+}
+.fav {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s var(--ease);
+}
+.fav:hover {
+  background: var(--surface-2);
+}
+.fav--active,
+.fav--active:hover {
+  background: var(--accent-soft);
+}
+.fav__select {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+}
+.fav__icon {
+  color: var(--text-3);
+}
+.fav--active .fav__icon {
+  color: var(--accent);
+}
+.fav__name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fav__meta {
+  font-size: 12px;
+  color: var(--text-3);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.fav__remove {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-3);
+}
+.fav__remove:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.favs__hint {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--warning);
+}
+.favs__warning {
+  margin-top: 10px;
+}
+
+/* Tablet & mobile: favourites sit above the dashboard as a horizontal strip. */
+@media (max-width: 1023px) {
+  .favs__list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+    margin-bottom: -4px;
+    scrollbar-width: thin;
+  }
+  .fav {
+    flex: none;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    max-width: 220px;
+  }
+  .fav__select {
+    padding-right: 2px;
+  }
+  .fav--active {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  }
+}

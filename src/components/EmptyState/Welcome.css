@@ -1,0 +1,48 @@
+.welcome {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 48px 28px;
+  animation: fade-up 0.35s var(--ease) both;
+}
+.welcome__title {
+  margin-top: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.welcome__text {
+  margin-top: 8px;
+  max-width: 480px;
+  color: var(--text-2);
+}
+.welcome__label {
+  margin-top: 26px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+}
+.welcome__picks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  max-width: 520px;
+}
+.welcome__pick svg {
+  color: var(--text-3);
+}
+.welcome__offline {
+  margin-top: 20px;
+}
+@media (max-width: 640px) {
+  .welcome {
+    padding: 32px 16px;
+  }
+  .welcome__title {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,40 @@
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.segmented__option {
+  min-width: 38px;
+  height: 32px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-3);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.segmented__option:hover {
+  color: var(--text);
+}
+.segmented__option[aria-pressed='true'] {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+/* Touch: each option is a full 44×44 target; the track padding moves inside. */
+@media (max-width: 640px), (pointer: coarse) {
+  .segmented {
+    padding: 0;
+    gap: 0;
+  }
+  .segmented__option {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 9px;
+  }
+}

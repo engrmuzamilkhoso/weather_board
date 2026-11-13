@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>WeatherBoard</title>
+    <meta
+      name="description"
+      content="WeatherBoard — search any city, see current conditions and a 5-day forecast, save favourites and get a daily morning reminder. Works offline."
+    />
+    <meta name="theme-color" content="#f6f7f9" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="WeatherBoard" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <script>
+      // Apply the saved/system theme before first paint to avoid a light→dark flash.
+      // Kept tiny and dependency-free; useTheme() takes over once React mounts.
+      ;(function () {
+        var theme = null
+        try {
+          theme = JSON.parse(localStorage.getItem('weatherboard:theme'))
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>WeatherBoard needs JavaScript to fetch live weather.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

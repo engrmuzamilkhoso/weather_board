@@ -1,0 +1,138 @@
+.forecast {
+  container-type: inline-size;
+  animation: fade-up 0.35s 0.05s var(--ease) both;
+}
+.forecast__empty {
+  color: var(--text-2);
+}
+
+/* ---- Narrow: list rows with temperature range bar -------------------- */
+.forecast__list {
+  display: grid;
+}
+.forecast__day {
+  display: grid;
+  grid-template-columns: 74px 32px minmax(0, 1fr) minmax(130px, 42%);
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding-block: 8px;
+  border-top: 1px solid var(--border);
+}
+.forecast__day:first-child {
+  border-top: 0;
+}
+.forecast__when {
+  display: grid;
+}
+.forecast__weekday {
+  font-weight: 650;
+}
+.forecast__date {
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+.forecast__cond {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.forecast__cond > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.forecast__pop {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rain);
+}
+.forecast__temps {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+.forecast__min {
+  color: var(--text-3);
+  text-align: right;
+}
+.forecast__max {
+  font-weight: 650;
+}
+.forecast__bar {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+}
+.forecast__bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6fb4e0, #f0a020);
+}
+
+@container (max-width: 420px) {
+  .forecast__day {
+    grid-template-columns: 54px 28px minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .forecast__temps {
+    grid-template-columns: auto auto;
+    gap: 10px;
+  }
+  .forecast__bar {
+    display: none;
+  }
+}
+
+/* ---- Wide: five tiles ------------------------------------------------ */
+@container (min-width: 640px) {
+  .forecast__list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .forecast__day {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 14px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+  .forecast__day:first-child {
+    border: 1px solid var(--border);
+    background: var(--accent-soft);
+  }
+  .forecast__when {
+    justify-items: center;
+  }
+  .forecast__cond {
+    align-items: center;
+    min-height: 40px;
+    font-size: 13px;
+    width: 100%;
+  }
+  .forecast__temps {
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 10px;
+  }
+  .forecast__bar {
+    display: none;
+  }
+  .forecast__min {
+    order: 2;
+  }
+}

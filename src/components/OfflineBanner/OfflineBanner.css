@@ -1,0 +1,25 @@
+.offline-banner {
+  background: #2b2f38;
+  color: #f2f4f7;
+  font-size: 13.5px;
+  animation: fade-up 0.25s var(--ease) both;
+}
+:root[data-theme='dark'] .offline-banner {
+  background: #2a2216;
+  color: #f7dfb5;
+}
+.offline-banner--back,
+:root[data-theme='dark'] .offline-banner--back {
+  background: var(--success);
+  color: #fff;
+}
+.offline-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding-block: 8px;
+}
+.offline-banner strong {
+  font-weight: 650;
+}
